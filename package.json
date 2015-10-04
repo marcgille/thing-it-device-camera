@@ -1,0 +1,19 @@
+{
+  "name": "thing-it-device-camera",
+  "version": "0.0.1",
+  "description": "[thing-it-node] Device Plugin for USB and Wifi Cameras.",
+  "authors": "Marc Gille",
+  "license": "MIT, EPL",
+  "keywords": [
+    "IoT",
+    "thing-it",
+    "Surveillance",
+    "Camera",
+    "Video",
+    "Photo"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
