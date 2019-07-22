@@ -48,6 +48,12 @@ function UsbCamera() {
     UsbCamera.prototype.start = function () {
         var deferred = q.defer();
 
+        this.operationalState = {
+            status: 'PENDING',
+            message: 'Waiting for initialization...'
+        };
+        this.publishOperationalStateChange();
+
         this.state = {};
 
         // Open namespace for web socket connections
@@ -77,6 +83,12 @@ function UsbCamera() {
         // this.socketStream = socketStream.create(this.namespace);
 
         if (this.isSimulated()) {
+            this.operationalState = {
+                status: 'OK',
+                message: 'USB Camera successfully initialized'
+            }
+            this.publishOperationalStateChange();
+
             deferred.resolve();
 
             setInterval(function () {
@@ -96,6 +108,12 @@ function UsbCamera() {
 
             this.streamChunk();
 
+            this.operationalState = {
+                status: 'OK',
+                message: 'USB Camera successfully initialized'
+            }
+            this.publishOperationalStateChange();
+            
             deferred.resolve();
         }
 
